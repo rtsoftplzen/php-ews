@@ -77,7 +77,6 @@ class ExchangeAutodiscoverTest extends TestCase
     {
         $reflectedClass = new \ReflectionClass(Autodiscover::class);
         $method = $reflectedClass->getMethod('parseServerVersion');
-        $method->setAccessible(true);
         $instance = $reflectedClass->newInstanceWithoutConstructor();
 
         $version = $method->invoke($instance, $hex);

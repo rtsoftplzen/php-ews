@@ -105,7 +105,7 @@ class FindFolderParentType extends Type implements Countable, ArrayAccess, Itera
     #[\ReturnTypeWillChange]
     public function getIterator()
     {
-        return new \ArrayIterator($this->folders->getIterator());
+        return $this->folders->getIterator();
     }
 
     /**

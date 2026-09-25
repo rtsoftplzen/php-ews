@@ -1,0 +1,15 @@
+includes:
+	- vendor/phpstan/phpstan-deprecation-rules/rules.neon
+	- phpstan-baseline.neon
+
+parameters:
+	level: max
+
+	# Analyse against the whole supported PHP range (see "php" in composer.json).
+	phpVersion:
+		min: 80200
+		max: 80500
+
+	paths:
+		- src
+		- tests

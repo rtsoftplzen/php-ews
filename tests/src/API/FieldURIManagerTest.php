@@ -12,7 +12,6 @@ class FieldURIManagerTest extends TestCase
     public function testGetFieldUrisFromClass()
     {
         $reflectionMethod = new \ReflectionMethod(FieldURIManager::class, 'getFieldUrisFromClass');
-        $reflectionMethod->setAccessible(true);
 
         $dictionaryURIs = $reflectionMethod->invoke(new DictionaryURIType(), DictionaryURIType::class);
         $this->assertEquals('contacts:PhysicalAddress:City', $dictionaryURIs['physicaladdress']['contacts']['city']);

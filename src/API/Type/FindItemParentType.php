@@ -119,7 +119,7 @@ class FindItemParentType extends Type implements Countable, ArrayAccess, Iterato
     public function getIterator()
     {
         $arrayAccessName = ($this->items != null ? 'items' : 'groups');
-        return new \ArrayIterator($this->{$arrayAccessName}->getIterator());
+        return $this->{$arrayAccessName}->getIterator();
     }
 
     /**

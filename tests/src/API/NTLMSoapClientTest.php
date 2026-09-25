@@ -18,7 +18,7 @@ class NTLMSoapClientTest extends BaseTestCase
 {
     public function getClientMock()
     {
-        $mock = Mockery::mock('garethp\ews\API\NTLMSoapClient')->shouldDeferMissing();
+        $mock = Mockery::mock('garethp\ews\API\NTLMSoapClient')->makePartial();
 
         return $mock;
     }
@@ -27,7 +27,6 @@ class NTLMSoapClientTest extends BaseTestCase
     {
         $reflection = new ReflectionClass('\garethp\ews\API\NTLMSoapClient');
         $prop = $reflection->getProperty('validate');
-        $prop->setAccessible(true);
 
         $client = new NTLMSoapClient(
             'location',

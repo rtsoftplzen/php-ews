@@ -22,7 +22,7 @@ class ExchangeWebServicesTest extends TestCase
 
     public function getClientMock()
     {
-        $mock = Mockery::mock('garethp\ews\API\ExchangeWebServices')->shouldDeferMissing();
+        $mock = Mockery::mock('garethp\ews\API\ExchangeWebServices')->makePartial();
 
         return $mock;
     }

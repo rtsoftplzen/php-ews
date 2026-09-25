@@ -34,7 +34,7 @@ class APITest extends BaseTestCase
         $testCreateFolder = $client->getFolderByDisplayName('Test Create Calendar', $parentFolder->getFolderId());
         $this->assertNotFalse($testCreateFolder);
 
-        $client->deleteFolder($testCreateFolder->getFolderId());
+        $client->deleteFolders($testCreateFolder->getFolderId());
     }
 
     public function testCreateFolders()
@@ -50,7 +50,7 @@ class APITest extends BaseTestCase
         $testCreateFolder = $client->getFolderByDisplayName('Test Create Folder', $parentFolder->getFolderId());
         $this->assertNotFalse($testCreateFolder);
 
-        $client->deleteFolder($testCreateFolder->getFolderId());
+        $client->deleteFolders($testCreateFolder->getFolderId());
     }
 
     public function testDeleteFolder()
@@ -62,6 +62,7 @@ class APITest extends BaseTestCase
         $testCreateFolder = $client->getFolderByDisplayName('Test Create Folder', $parentFolder->getFolderId());
         $this->assertNotFalse($testCreateFolder);
 
+        // @phpstan-ignore method.deprecated (the deprecated wrapper is still public API and should stay covered)
         $client->deleteFolder($testCreateFolder->getFolderId());
 
         $testCreateFolder = $client->getFolderByDisplayName('Test Create Folder', $parentFolder->getFolderId());
@@ -105,7 +106,6 @@ class APITest extends BaseTestCase
 
         $ntlmSoapReflection = new \ReflectionClass(API\NTLMSoapClient::class);
         $reflectedProp = $ntlmSoapReflection->getProperty('auth');
-        $reflectedProp->setAccessible(true);
 
         $this->assertEquals(
             $reflectedProp->getValue($expected->getClient()),
@@ -126,7 +126,6 @@ class APITest extends BaseTestCase
 
         $ntlmSoapReflection = new \ReflectionClass(API\NTLMSoapClient::class);
         $reflectedProp = $ntlmSoapReflection->getProperty('auth');
-        $reflectedProp->setAccessible(true);
 
         $this->assertEquals(
             $reflectedProp->getValue($expected->getClient()),
@@ -151,7 +150,6 @@ class APITest extends BaseTestCase
 
         $ntlmSoapReflection = new \ReflectionClass(API\NTLMSoapClient::class);
         $reflectedProp = $ntlmSoapReflection->getProperty('auth');
-        $reflectedProp->setAccessible(true);
 
         $this->assertEquals(
             $reflectedProp->getValue($expected->getClient()),
